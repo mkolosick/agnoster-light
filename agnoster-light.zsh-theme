@@ -101,7 +101,7 @@ prompt_git() {
     if [[ -n $dirty ]]; then
       prompt_segment magenta white
     else
-      prompt_segment brgreen white
+      prompt_segment brightgreen white
     fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
@@ -141,7 +141,7 @@ prompt_hg() {
         st='±'
       else
         # if working copy is clean
-        prompt_segment brgreen white
+        prompt_segment brightgreen white
       fi
       echo -n $(hg prompt "☿ {rev}@{branch}") $st
     else
@@ -155,7 +155,7 @@ prompt_hg() {
         prompt_segment magenta white
         st='±'
       else
-        prompt_segment brgreen white
+        prompt_segment brightgreen white
       fi
       echo -n "☿ $rev@$branch" $st
     fi
@@ -164,7 +164,7 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment brblue white '%~'
+  prompt_segment brightblue white '%~'
 }
 
 # Virtualenv: current working virtualenv
