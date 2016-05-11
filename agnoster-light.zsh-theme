@@ -99,9 +99,9 @@ prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment magenta white
+      prompt_segment magenta 015
     else
-      prompt_segment 011 white
+      prompt_segment 011 015
     fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
@@ -137,11 +137,11 @@ prompt_hg() {
         st='±'
       elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
-        prompt_segment yellow white
+        prompt_segment magenta 015
         st='±'
       else
         # if working copy is clean
-        prompt_segment green white
+        prompt_segment 011 015
       fi
       echo -n $(hg prompt "☿ {rev}@{branch}") $st
     else
